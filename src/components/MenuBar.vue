@@ -2,7 +2,7 @@
   menu-bar(:class="{active: active}" @click="onClick")
     template(v-for="menu in menus")
       menu-item(:model="menu")
-    a(href="https://github.com/linlifengx/veditor", target="_blank") Fork me on GitHub
+    // a(href="https://github.com/linlifengx/veditor", target="_blank") Fork me on GitHub
 </template>
 
 <script>
@@ -32,7 +32,8 @@ export default {
           {text: 'Copy', active: false, enable: false, action: 'edit-copy'},
           {text: 'Paste', active: false, enable: false, action: 'edit-paste'},
           {text: 'Select All', active: false, enable: false, action: 'edit-select-all'}
-        ]}
+        ]},
+        {text: 'Run', active: false, enable: true}
       ]
     }
   },

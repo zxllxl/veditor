@@ -7,6 +7,7 @@
         file-panel
       resize-bar
       editor-panel
+    code-run-panel
 </template>
 
 <script>
@@ -15,6 +16,7 @@ import OpenFilePanel from './components/OpenFilePanel'
 import FilePanel from './components/FilePanel'
 import EditorPanel from './components/EditorPanel'
 import ResizeBar from './components/ResizeBar'
+import CodeRunPanel from './components/CodeRunPanel'
 
 export default {
   components: {
@@ -22,7 +24,8 @@ export default {
     OpenFilePanel,
     FilePanel,
     EditorPanel,
-    ResizeBar
+    ResizeBar,
+    CodeRunPanel
   }
 }
 </script>
