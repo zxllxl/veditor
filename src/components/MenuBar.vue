@@ -33,7 +33,7 @@ export default {
           {text: 'Paste', active: false, enable: false, action: 'edit-paste'},
           {text: 'Select All', active: false, enable: false, action: 'edit-select-all'}
         ]},
-        {text: 'Run', active: false, enable: true}
+        {text: 'Run', active: false, enable: true, action: 'run-code'}
       ]
     }
   },

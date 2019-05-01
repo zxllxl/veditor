@@ -133,6 +133,13 @@ export default {
         if (this.file.active) {
           editor.execCommand('selectall')
         }
+      }),
+      runCode: PubSub.subscribe('run-code', () => {
+        if (this.file.active) {
+          var codeLines = editor.getValue()
+          // console.log(codeLines)
+          PubSub.publish('run-code-start', codeLines)
+        }
       })
     }
   },
