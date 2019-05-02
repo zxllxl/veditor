@@ -5,6 +5,8 @@ mode-selector(@click="onClick")
     item(v-for="lang in langs", @click="onSelect(lang)", :class="{selected: lang==model}") {{lang}}
 </template>
 <script>
+import PubSub from 'pubsub-js'
+
 var supportLang = [
   'abap','html','powershell','abc','html_ruby','praat','actionscript','ini','prolog',
   'ada','io','properties','apache_conf','jack','protobuf','applescript','jade',
@@ -35,6 +37,7 @@ export default {
     onSelect (lang) {
       this.model = lang
       this.show = false
+      PubSub.publish('code-lang', lang)
     },
     onTextClick () {
       this.show = !this.show

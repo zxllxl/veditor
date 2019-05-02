@@ -11,21 +11,35 @@ import qs from 'qs'
 export default {
   data () {
     return {
+      lang: 'text',
       runRet: ''
     }
   },
   attached () {
     this.tokens = {
+      codeLang: PubSub.subscribe('code-lang', (msg, data) => {
+        this.lang = data
+        console.log('CodeRunPanel:22:'+data)
+      }),
       runCode: PubSub.subscribe('run-code-start', (msg, data) => {
+        this.runRet = 'running...'
         axios.post('http://code.52zxw.net/test2', qs.stringify({
-            code: data,
+          lang: this.lang,
+          code: data,
         }), {headers: {'Content-Type': 'application/x-www-form-urlencoded'}})
         .then((response) => {
           console.log(response.data)
-          this.runRet = response.data.stdout
+          var runRet = ''
+          if (response.data.stderr != '') {
+            runRet = response.data.stderr
+          } else {
+            runRet = response.data.stdout
+          }
+          this.runRet = runRet
         })
         .catch((error) => {
           console.log(error)
+          this.runRet = 'error!'
         })
       })
     }

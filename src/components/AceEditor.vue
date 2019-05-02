@@ -151,12 +151,17 @@ export default {
   },
   watch: {
     'file.active' (val, oldVal) {
+      console.log('AceEditor:154:'+this.status.mode)
+      console.log('AceEditor:155:'+val+'|'+oldVal)
       if (val == true) {
         this._editor.focus()
+        PubSub.publish('code-lang', this.status.mode)
       }
     },
     'status.mode' (val, oldVal) {
+      console.log('AceEditor:160:'+this.status.mode)
       this._editor.session.setMode("ace/mode/"+this.status.mode)
+      PubSub.publish('code-lang', this.status.mode)
     }
   },
   components: {
