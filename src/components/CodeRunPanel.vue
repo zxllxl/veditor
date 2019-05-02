@@ -1,6 +1,6 @@
 <template lang="jade">
   code-run-panel
-    h1 {{hello}}
+    p {{runRet}}
 </template>
 
 <script>
@@ -11,21 +11,20 @@ import qs from 'qs'
 export default {
   data () {
     return {
-      hello: 'Hello World!'
+      runRet: ''
     }
   },
   attached () {
     this.tokens = {
       runCode: PubSub.subscribe('run-code-start', (msg, data) => {
-        // console.log('123')
-        this.hello = 'Hello, My World'
         axios.post('http://code.52zxw.net/test2', qs.stringify({
             code: data,
         }), {headers: {'Content-Type': 'application/x-www-form-urlencoded'}})
-        .then(function (response) {
+        .then((response) => {
           console.log(response.data)
+          this.runRet = response.data.stdout
         })
-        .catch(function (error) {
+        .catch((error) => {
           console.log(error)
         })
       })
@@ -43,6 +42,4 @@ export default {
   code-run-panel
     flex: 0 0 auto
     height: 30%
-  h1
-    color: red
 </style>
