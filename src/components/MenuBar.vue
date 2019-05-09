@@ -19,19 +19,19 @@ export default {
         {text: 'File', active: false, enable: true, children: [
           {text: 'New File', active: false, enable: true, noCheck: true, action: 'action-new-file'},
           {text: 'New Folder', active: false, enable: true, noCheck: true, action: 'action-new-folder'},
-          {text: 'Rename File', active: false, enable: true, action: 'action-rename-file'},
-          {text: 'Delete File', active: false, enable: true, action: 'action-delete-file'},
+          {text: 'Rename', active: false, enable: true, action: 'action-rename-file'},
+          {text: 'Delete', active: false, enable: true, action: 'action-delete-file'},
           '-------------------------',
           {text: 'Save File', active: false, enable: false, action: 'save-file'}
         ]},
         {text: 'Edit', active: false, enable: true, children: [
           {text: 'Undo', active: false, enable: false, action: 'edit-undo'},
           {text: 'Redo', active: false, enable: false, action: 'edit-redo'},
-          '-------------------------',
-          {text: 'Cut', active: false, enable: false, action: 'edit-cut'},
-          {text: 'Copy', active: false, enable: false, action: 'edit-copy'},
-          {text: 'Paste', active: false, enable: false, action: 'edit-paste'},
-          {text: 'Select All', active: false, enable: false, action: 'edit-select-all'}
+          // '-------------------------',
+          // {text: 'Cut', active: false, enable: false, action: 'edit-cut'},
+          // {text: 'Copy', active: false, enable: false, action: 'edit-copy'},
+          // {text: 'Paste', active: false, enable: false, action: 'edit-paste'},
+          // {text: 'Select All', active: false, enable: false, action: 'edit-select-all'}
         ]},
         {text: 'Run', active: false, enable: true, action: 'run-code'}
       ]

@@ -1,6 +1,6 @@
 <template lang="jade">
   code-run-panel
-    p {{runRet}}
+    textarea {{runRet}}
 </template>
 
 <script>
@@ -56,4 +56,8 @@ export default {
   code-run-panel
     flex: 0 0 auto
     height: 30%
+    textarea
+      width: 100%
+      height: 100%
+      padding: 10px
 </style>
